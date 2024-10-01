@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Audit Minutes</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            align-items: center;
+            justify-content: flex-start; /* Align items to the start */
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            padding-top: 30px; /* Ensure padding to avoid overlap with header */
+        }
+        .header {
+            background-color:#0097A7;;
+            padding: 15px; /* Adjusted padding */
+            width: 100%;
+            max-width: 1460px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: add shadow for better appearance */
+        }
+        .header img {
+            position: absolute;
+            top: 5px; /* Adjusted position */
+            left: 30px;
+            width: 90px; /* Adjusted size */
+            height: auto;
+        }
+        .header-title {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0;
+            color: white;
+        }
+        .header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 36px; /* Font size for the header */
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            letter-spacing: 0px; /* Add letter spacing for readability */
+        }
+        .filter-container {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            gap: 25px; /* General gap between elements */
+            margin-top: 150px; /* Adjusted margin to fit below header */
+            flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+            align-items: center; /* Align items vertically centered */
+        }
+        .filter-container label {
+           margin: 0px;
+           padding-right:5px; /* No extra margin between label and dropdown */
+        }
+        .filter-container select {
+           margin-left: 0; /* Remove margin on the left side of select */
+         }
+        .gap {
+            margin-left: 10px; /* Gap between the dropdown lists */
+        }
+        table {
+            width: 90%;
+            border: 1px solid black;
+            border-collapse: collapse;
+            display: none; /* Initially hide the table */
+            margin-top: 45px; /* Space between dropdown and table */
+        }
+        table th, table td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #FFC67D;
+            color: white;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="logo.jpg" alt="VVIT Logo">
+    <h1>ACADEMIC AUDIT MINUTES</h1>
+</div>
+
+<div class="filter-container">
+    <label for="programName">Select Department:</label>
+    <select id="programName" onchange="filterTable()">
+        <option value="All">All</option>
+        <option value="Civil Engineering">Civil Engineering</option>
+        <option value="Electrical & Electronics Engineering">Electrical & Electronics Engineering</option>
+        <option value="Mechanical Engineering">Mechanical Engineering</option>
+        <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+        <option value="Computer Science Engineering">Computer Science Engineering</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="CSE - Artificial Intelligence and Machine Learning (CSM)">CSE - Artificial Intelligence and Machine Learning (CSM)</option>
+        <option value="Artificial Intelligence and Machine Learning (AIM)">Artificial Intelligence and Machine Learning (AIM)</option>
+        <option value="CSE - Artificial Intelligence and Data Science">CSE - Artificial Intelligence and Data Science</option>
+        <option value="CSE - Internet of things and Cyber security including Block chain Technology (CIC)">CSE - Internet of things and Cyber security including Block chain Technology (CIC)</option>
+        <option value="CSE - Internet of Things">CSE - Internet of Things</option>
+    </select>
+
+    <div class="gap"></div> <!-- Spacer -->
+
+    <label for="years">Years:</label>
+    <select id="years" onchange="filterTable()">
+        <option value="">Select Year</option>
+        <option value="2019 - 20">2019 - 20</option>
+        <option value="2020 - 21">2020 - 21</option>
+        <option value="2021 - 22">2021 - 22</option>
+        <option value="2022 - 23">2022 - 23</option>
+    </select>
+</div>
+
+<table id="bosTable">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Department</th>
+            <th>Year</th>
+            <th>Document</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Example rows (add more as needed) -->
+        <tr>
+            <td>1</td>
+            <td>Civil Engineering</td>
+            <td>2019 - 20</td>
+            <td><a href="AAC_19.html">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Civil Engineering</td>
+            <td>2020 - 21</td>
+            <td><a href="AAC_20.html">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Civil Engineering</td>
+            <td>2021 - 22</td>
+            <td><a href="AAC_21.html">view</a></td>
+        </tr>
+          <tr>
+            <td>1</td>
+            <td>Information Technology</td>
+            <td>2018 - 19</td>
+            <td><a href="AAC_18.html">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Information Technology</td>
+            <td>2019 - 20</td>
+            <td><a href="AAC_19.html">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Information Technology</td>
+            <td>2020 - 21</td>
+            <td><a href="AAC_20.html">view</a></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Information Technology</td>
+            <td>2021 - 22</td>
+            <td><a href="AAC_21.html">view</a></td>
+        </tr>
+          <tr>
+            <td>5</td>
+            <td>Information Technology</td>
+            <td>2022 - 23</td>
+            <td><a href="AAC_22.html">view</a></td>
+        </tr>
+          
+        <tr>
+            <td>1</td>
+            <td>Electrical & Electronics Engineering</td>
+            <td>2019 - 20</td>
+            <td><a href="Bos_Minutes__EEE_2019_20.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Electrical & Electronics Engineering</td>
+            <td>2020 - 21</td>
+            <td><a href="Bos_Minutes__EEE_2020_21.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Electrical & Electronics Engineering</td>
+            <td>2021 - 22</td>
+            <td><a href="Bos_Minutes__EEE_2021_22.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Mechanical Engineering</td>
+            <td>2019 - 20</td>
+            <td><a href="Bos_Minutes__ME_2019_20.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Mechanical Engineering</td>
+            <td>2020 - 21</td>
+            <td><a href="Bos_Minutes__ME_2020_21.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Mechanical Engineering</td>
+            <td>2021 - 22</td>
+            <td><a href="Bos_Minutes__ME_2021_22.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Electronics and Communication Engineering</td>
+            <td>2019 - 20</td>
+            <td><a href="Bos_Minutes__ECE_2019_20.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Electronics and Communication Engineering</td>
+            <td>2020 - 21</td>
+            <td><a href="Bos_Minutes__ECE_2020_21.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Electronics and Communication Engineering</td>
+            <td>2021 - 22</td>
+            <td><a href="Bos_Minutes__ECE_2021_22.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Computer Science Engineering</td>
+            <td>2019 - 20</td>
+            <td><a href="Bos_Minutes__CSE_2019_20.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Computer Science Engineering</td>
+            <td>2020 - 21</td>
+            <td><a href="Bos_Minutes__CSE_2020_21.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Computer Science Engineering</td>
+            <td>2021 - 22</td>
+            <td><a href="Bos_Minutes__CSE_2021_22.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>CSE - Artificial Intelligence and Machine Learning (CSM)</td>
+            <td>2019 - 20</td>
+            <td><a href="Bos_Minutes__CSM_2019_20.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>CSE - Artificial Intelligence and Machine Learning (CSM)</td>
+            <td>2020 - 21</td>
+            <td><a href="Bos_Minutes__CSM_2020_21.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>CSE - Artificial Intelligence and Machine Learning (CSM)</td>
+            <td>2021 - 22</td>
+            <td><a href="Bos_Minutes__CSM_2021_22.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Artificial Intelligence and Machine Learning (AIM)</td>
+            <td>2019 - 20</td>
+            <td><a href="Bos_Minutes__AIM_2019_20.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Artificial Intelligence and Machine Learning (AIM)</td>
+            <td>2020 - 21</td>
+            <td><a href="Bos_Minutes__AIM_2020_21.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Artificial Intelligence and Machine Learning (AIM)</td>
+            <td>2021 - 22</td>
+            <td><a href="Bos_Minutes__AIM_2021_22.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>CSE - Artificial Intelligence and Data Science</td>
+            <td>2019 - 20</td>
+            <td><a href="Bos_Minutes__AIDS_2019_20.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>CSE - Artificial Intelligence and Data Science</td>
+            <td>2020 - 21</td>
+            <td><a href="Bos_Minutes__AIDS_2020_21.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>CSE - Artificial Intelligence and Data Science</td>
+            <td>2021 - 22</td>
+            <td><a href="Bos_Minutes__AIDS_2021_22.pdf">2021 - 22</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>CSE - Internet of things and Cyber security including Block chain Technology (CIC)</td>
+            <td>2019 - 20</td>
+            <td><a href="Bos_Minutes__CIC_2019_20.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>CSE - Internet of things and Cyber security including Block chain Technology (CIC)</td>
+            <td>2020 - 21</td>
+            <td><a href="Bos_Minutes__CIC_2020_21.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>CSE - Internet of things and Cyber security including Block chain Technology (CIC)</td>
+            <td>2021 - 22</td>
+            <td><a href="Bos_Minutes__CIC_2021_22.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>CSE - Internet of Things</td>
+            <td>2019 - 20</td>
+            <td><a href="Bos_Minutes__IOT_2019_20.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>CSE - Internet of Things</td>
+            <td>2020 - 21</td>
+            <td><a href="Bos_Minutes__IOT_2020_21.pdf">view</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>CSE - Internet of Things</td>
+            <td>2021 - 22</td>
+            <td><a href="Bos_Minutes__IOT_2021_22.pdf">view</a></td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+</table>
+
+<script>
+    function filterTable() {
+        var programName = document.getElementById('programName').value.toUpperCase();
+        var years = document.getElementById('years').value.toUpperCase();
+        
+        var table = document.getElementById('bosTable');
+        var rows = table.getElementsByTagName('tr');
+        
+        var visible = false; // Flag to track if any row should be visible
+        
+        for (var i = 1; i < rows.length; i++) {
+            var row = rows[i];
+            var rowData = row.getElementsByTagName('td');
+            
+            var name = rowData[1].textContent.toUpperCase();
+            var year = rowData[2].textContent.toUpperCase();
+            
+            // Check if the row should be displayed based on selected filters
+            if (
+                (programName === 'ALL' || name.indexOf(programName) > -1) &&
+                (years === '' || years === 'ALL' || year.indexOf(years) > -1)
+            ) {
+                row.style.display = '';
+                visible = true; // Set flag to true if at least one row is visible
+            } else {
+                row.style.display = 'none';
+            }
+        }
+        
+        // Show or hide the table based on whether any row is visible
+        table.style.display = visible ? 'table' : 'none';
+    }
+</script>
+
+
+
+</body>
+</html>

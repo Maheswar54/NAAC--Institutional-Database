@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Audit Minutes</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            align-items: center;
+            justify-content: flex-start; /* Align items to the start */
+            height: 100vh;
+            margin: 0;
+            background-color: #fff;
+            padding-top: 30px; /* Ensure padding to avoid overlap with header */
+        }
+        .header {
+            background-color:#C45AEC;
+            padding: 35px; /* Adjusted padding */
+            width: 100%;
+            max-width: 1460px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            border-radius: 15px;
+            margin: 35px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: add shadow for better appearance */
+        }
+        .header img {
+            position: absolute;
+            top: 5px; /* Adjusted position */
+            left: 30px;
+            width: 90px; /* Adjusted size */
+            height: auto;
+        }
+        .header-title {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0;
+            color: white;
+        }
+        .header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 36px; /* Font size for the header */
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            letter-spacing: 0px; /* Add letter spacing for readability */
+        }
+        form {position: fixed; top: 150px; left: 0; width: 100%; height: calc(100vh - 150px); padding: 20px; background-color: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .filter-container {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            gap: 25px; /* General gap between elements */
+            margin-top: 150px; /* Adjusted margin to fit below header */
+            flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+            align-items: center; /* Align items vertically centered */
+        }
+        .filter-container label {
+           margin: 0px;
+           padding-right:5px; /* No extra margin between label and dropdown */
+        }
+        .filter-container select {
+           margin-left: 0; /* Remove margin on the left side of select */
+         }
+        .gap {
+            margin-left: 10px; /* Gap between the dropdown lists */
+        }
+        
+     
+        select {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="logo.jpg" alt="VVIT Logo">
+    <h1>Faculty Development Programs</h1>
+</div>
+<form action = "Fdps" method = "post" >
+
+<div class="filter-container">
+    <label for="programName">Select Department:</label>
+    <select id="programName" name="dept">
+        <option value="All">All</option>
+        <option value="CIVIL">Civil Engineering</option>
+        <option value="EEE">Electrical & Electronics Engineering</option>
+        <option value="MECH">Mechanical Engineering</option>
+        <option value="ECE">Electronics and Communication Engineering</option>
+        <option value="CSE">Computer Science Engineering</option>
+        <option value="IT">Information Technology</option>
+        <option value="CSE - Artificial Intelligence and Machine Learning (CSM)">CSE - Artificial Intelligence and Machine Learning (CSM)</option>
+        <option value="Artificial Intelligence and Machine Learning (AIM)">Artificial Intelligence and Machine Learning (AIM)</option>
+        <option value="CSE - Artificial Intelligence and Data Science">CSE - Artificial Intelligence and Data Science</option>
+        <option value="CSE - Internet of things and Cyber security including Block chain Technology (CIC)">CSE - Internet of things and Cyber security including Block chain Technology (CIC)</option>
+        <option value="CSE - Internet of Things">CSE - Internet of Things</option>
+    </select>
+
+    <div class="gap"></div> <!-- Spacer -->
+
+    <label for="years">Years:</label>
+    <select id="years" name="year">
+        <option value="">Select Year</option>
+        <option value="2020">2020</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+    </select>
+    
+    <div>
+    <input type="submit" value="View" style="background-color: #E238EC; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+
+    </div>
+</div>
+</form>
+
+
+<script>
+    function filterTable() {
+        var programName = document.getElementById('programName').value.toUpperCase();
+        var years = document.getElementById('years').value.toUpperCase();
+        
+        var table = document.getElementById('bosTable');
+        var rows = table.getElementsByTagName('tr');
+        
+        var visible = false; // Flag to track if any row should be visible
+        
+        for (var i = 1; i < rows.length; i++) {
+            var row = rows[i];
+            var rowData = row.getElementsByTagName('td');
+            
+            var name = rowData[1].textContent.toUpperCase();
+            var year = rowData[2].textContent.toUpperCase();
+            
+            // Check if the row should be displayed based on selected filters
+            if (
+                (programName === 'ALL' || name.indexOf(programName) > -1) &&
+                (years === '' || years === 'ALL' || year.indexOf(years) > -1)
+            ) {
+                row.style.display = '';
+                visible = true; // Set flag to true if at least one row is visible
+            } else {
+                row.style.display = 'none';
+            }
+        }
+        
+        // Show or hide the table based on whether any row is visible
+        table.style.display = visible ? 'table' : 'none';
+    }
+</script>
+
+
+
+</body>
+</html>

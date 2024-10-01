@@ -1,0 +1,120 @@
+body, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 30px;
+	background:linear-gradient(rgb(195, 29, 29),white); 
+	 color : #0f0404;
+}
+.body {
+	display: flex;
+}
+.section-1 {
+	width: 100%;
+	background: url("vvit.jpg");
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.sidebar {
+	width: 250px;
+	background:radial-gradient(rgb(255, 134, 134),white);
+	min-height: 100vh;
+	transition: 500ms width;
+}
+.sidebar ul {
+	margin-top: 20px;
+	list-style: none;
+}
+  .sidebar ul ul {
+    position: static;
+    background-color:olive;
+    padding:15px;
+    display: none;
+  }
+  .sidebar ul li{
+  position: relative;
+    padding:5px;
+    letter-spacing: 1px;}
+  nav ul li:hover {
+    background:linear-gradient(white,gold);
+  }
+  
+  .sidebar ul li:hover > ul {
+    display: block;
+    background-color: rgb(237, 244, 244);
+  }
+  
+  .sidebar ul ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
+
+  .section-1 {
+	width: 100%;
+	background: url("vvit.jpg");
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+form{
+    display:flex;
+    justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+button{
+    background-color: blueviolet;
+}
+#c6{
+    
+        margin:20px;
+        padding:10px;
+        float:left;
+        background:radial-gradient(white,violet);
+        width:250%;
+        height:50%;
+        border-radius:20px;
+        
+}
+h2{
+    box-sizing:5px;
+    box-shadow: #0f0404;}
+    p{
+   
+        border-radius: 7px;
+    }
+    p{
+    align:centre;
+    letter-spacing:1px;
+    }
+  .login-btn{
+    background-color: #E87E6A;
+    color: black;
+    padding-left : 18px;
+    padding-right : 18px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 18px;
+    position: relative;
+    left:900px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+}
+  
+
+
+  

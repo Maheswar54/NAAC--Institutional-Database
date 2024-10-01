@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Governing Body Details</title>
+	<style>
+		body {
+			background-color: #0097A7; /* lightskyblue color code */
+		}
+		.home-button {
+			background-color: brown;
+			color: white;
+			padding: 10px 20px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.header {
+			background-color: #FFC67D;
+			width: 45%;
+			margin: 0 auto;
+			padding: 20px;
+			text-align: center;
+			margin-top: 50px; /* added space for home button */
+		}
+		.form-container {
+			width: 45%;
+			margin: 0 auto;
+			padding: 20px;
+			margin-top: 5%; /* added 5% space */
+		}
+		.form-container select, input {
+			margin-bottom: 20px; /* increased space between elements */
+			padding: 10px;
+			width: 100%; /* added full width */
+		}
+		.label {
+			margin-bottom: 10px;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<button class="home-button" onclick = "home()">HOME</button>
+	<div class="header">
+		<h1 style=" width: 100%;">GOVERNING BODY DETAILS</h1>
+	</div>
+	<div class="form-container">
+		<form action = "Governing" method ="get">
+			<label class="label">Select Year:</label>
+			<select name="year" id="year">
+				<option value="2021">2020-21</option>
+             <option value="2022">2021-22</option>
+         <option value="2023">2022-23</option>
+			</select>
+			<input type="submit" value="view" >
+		</form>
+	</div>
+	<script type="text/javascript">
+	function home(){
+		window.open("Home_page.html");
+	}
+	</script>
+</body>
+</html>
+
+
